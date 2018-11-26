@@ -1,0 +1,41 @@
+<button class="add-btn m-2 m-md-3 p-2 p-sm-3" (click)="addNew()">add new movie</button>
+<div class="container">
+  <div class="row m-3">
+    <div *ngFor="let movie of movies" class="col-lg-4 col-sm-6 m-3 mx-auto">
+      <div class="card">
+        <div class="card-header-defaulte" [style.background-image]="'url(https://images.all-free-download.com/images/graphiclarge/the_exquisite_fantasy_film_background_03_vector_178940.jpg)'"></div>
+        <div class="card-header" [style.background-image]="'url('+movie.poster+')'"></div>
+        <div class="card-body m-md-2 pt-0">
+          <h3 class="movieTitle">{{movie.title | movietitle}}</h3>
+          <div class="row">
+            <div class="info-section col-md-3">
+              <label>Year</label>
+              <div>{{movie.year}}</div>
+            </div>
+            <div class="info-section col-md-4">
+              <label>Duration</label>
+              <div>{{movie.runtime}}</div>
+            </div>
+            <div class="info-section col-md-5">
+              <label>Director</label>
+              <div>{{movie.director}}</div>
+            </div>
+          </div>
+          <div class="genre-section">
+            <label>Genre:</label>
+            <div> {{movie.genre}}</div>
+          </div>
+          <div class="text-center">
+            <button class="py-1 px-4 mx-1 my-1 my-sm-2 my-md-3" (click)="edit(movie)">edit</button>
+            <button class="py-1 px-4 mx-1 my-1 my-sm-2 my-md-3" (click)="del(movie.id)">delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="confirm" class="p-2 p-sm-4">
+  <h3>do you really want to delete this movie?</h3>
+  <button class="py-1 px-4" (click)="delYes()">yes</button>
+  <button class="py-1 px-4" (click)="delNo()">no</button>
+</div>

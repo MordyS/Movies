@@ -1,0 +1,39 @@
+<div *ngIf="isShowPopup()">
+  <div class="background"></div>
+  <div class="popup px-3 px-sm-5">
+    <div>
+      <label class="mb-0 mt-2">Movie Name: </label>
+      <input class="form-control" type="text" [value]="movie.title" (keyup)="editedMovie.title = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.title}">
+    </div>
+    <div>
+      <label class="mb-0 mt-2">Image URL: </label>
+      <input class="form-control" type="text" [value]="movie.poster" (keyup)="editedMovie.poster = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.poster}">
+    </div>
+    <div>
+      <label class="mb-0 mt-2">Year relesed: </label>
+      <input class="form-control" type="text" [value]="movie.year" (keyup)="editedMovie.year = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.year}">
+    </div>
+    <div>
+      <label class="mb-0 mt-2">Duration: </label>
+      <input class="form-control" type="text" [value]="movie.runtime" (keyup)="editedMovie.runtime = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.runtime}">
+    </div>
+    <div>
+      <label class="mb-0 mt-2">Director: </label>
+      <input class="form-control" type="text" [value]="movie.director" (keyup)="editedMovie.director = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.director}">
+    </div>
+    <div>
+      <label class="mb-0 mt-2">Genre: </label>
+      <input class="form-control" type="text" [value]="movie.genre" (keyup)="editedMovie.genre = $event.target.value;"
+        [ngClass]="{'is-invalid' : !validation.genre}">
+    </div>
+    <div class="text-center">
+      <button class="py-1 px-4 mx-1 my-1 my-sm-2 my-md-3" (click)="save()">save</button>
+      <button class="py-1 px-4 mx-1 my-1 my-sm-2 my-md-3" (click)="cancel()">cancel</button>
+    </div>
+  </div>
+</div>

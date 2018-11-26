@@ -1,0 +1,48 @@
+.popup{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+	background: #eee;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #004186b3;
+}
+button{
+    display: inline-block;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+button:first-of-type{
+    background: #2196F3;
+}
+button:last-of-type{
+    background: transparent;
+    color: #678994;
+    border: #2196F3 solid 1px;
+}
+button:last-of-type:hover{
+	background: #ddd;
+	color: #0079ff;
+}
+@media (max-width: 576px) {
+    .form-control{
+        height: calc(1.5rem + 2px);
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
