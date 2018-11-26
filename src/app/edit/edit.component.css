@@ -38,6 +38,9 @@ button:last-of-type:hover{
 	background: #ddd;
 	color: #0079ff;
 }
+.flash{
+    animation: flash 1s;
+}
 @media (max-width: 576px) {
     .form-control{
         height: calc(1.5rem + 2px);
@@ -46,4 +49,10 @@ button:last-of-type:hover{
 
 @media (max-width: 768px) {
     
+}
+@keyframes flash {
+    0% {box-shadow: 0 0 0 ;}
+    20% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
+    60% {box-shadow: 0 0 0 ;}
+    80% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
 }

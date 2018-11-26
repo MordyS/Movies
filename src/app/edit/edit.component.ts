@@ -41,14 +41,14 @@ export class EditComponent implements OnInit {
     return 'hh' + (Date.now() % 100000).toString();
   }
 
-  validate(movie) {
-    this.validation.title = movie.title === '' ? false : true;
-    this.validation.year = Number(movie.year) > 1900 && Number(movie.year) < 2050 ? true : false;
-    this.validation.runtime = movie.runtime === '' ? false : true;
-    this.validation.genre = movie.genre === '' ? false : true;
-    this.validation.director = movie.director === '' ? false : true;
-    this.validation.poster = movie.poster === '' ? false : true;
-    return Object.values(this.validation).every(Boolean);
+  keyUpString(field, value) {
+    this.editedMovie[field] = value;
+    this.validation[field] = this.editedMovie[field] === '' ? false : true;
+  }
+
+  keyUpYear(field, value) {
+    this.editedMovie[field] = value;
+    this.validation[field] = Number(this.editedMovie[field]) > 1900 && Number(this.editedMovie[field]) < 2050 ? true : false;
   }
 
   save() {
@@ -59,9 +59,18 @@ export class EditComponent implements OnInit {
     this.editedMovie.genre = this.editedMovie.genre === '' ? this.movie.genre : this.editedMovie.genre;
     this.editedMovie.director = this.editedMovie.director === '' ? this.movie.director : this.editedMovie.director;
     this.editedMovie.poster = this.editedMovie.poster === '' ? this.movie.poster : this.editedMovie.poster;
-    if (this.validate(this.editedMovie)) {
+    if (Object.values(this.validation).every(Boolean)) {
       this.store.dispatch(new MovieActions.SaveMovie(this.editedMovie));
       this.close();
+    } else {
+      Array.from(document.getElementsByClassName('is-invalid')).forEach(element => {
+        element.classList.add('flash');
+      });
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName('is-invalid')).forEach(element => {
+          element.classList.remove('flash');
+        });
+      }, 1000);
     }
   }
 
