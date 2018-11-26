@@ -51,8 +51,9 @@ button:last-of-type:hover{
     
 }
 @keyframes flash {
-    0% {box-shadow: 0 0 0 ;}
-    20% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
+    0% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
+    50% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
     60% {box-shadow: 0 0 0 ;}
-    80% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
+    70% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
+    100% {box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);}
 }
