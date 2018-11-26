@@ -57,7 +57,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     allMovies.list.forEach(movie => {
-      this.http.get('http://www.omdbapi.com/?t=' + movie + '&apikey=b324dd1b').subscribe(data => {
+      this.http.get('https://www.omdbapi.com/?t=' + movie + '&apikey=b324dd1b').subscribe(data => {
         if (data['Response'] === 'True') {
           const movieData: Movie = {
             'id': data['imdbID'],
